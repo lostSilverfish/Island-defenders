@@ -16,10 +16,10 @@ window.onload = () => {
     prevTime = timeStamp;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     if (game.gameState === "playing") {
       game.update(dt);
       game.draw(ctx);
-
       game.island.checkEnemy(dt);
       game.checkForBulding(dt);
     } else if (game.gameState === "welcome") {

@@ -2,27 +2,17 @@ class Enemey {
   constructor(game, pos) {
     this.game = game;
     this.pos = pos;
-    this.w = 32;
-    this.h = 53;
-    this.health = 25;
-    this.attackTimer = 3500;
-    // this.attacking = false;
-    this.img = document.getElementById("enemey");
     this.projectiles = [];
     this.markForDeletion = false;
     this.frameX = 0;
     this.frameY = 0;
     this.MaxFrame = 2;
     this.nextFrame = 0;
-    this.speed = 15;
-    this.range = 250;
-    this.score = Math.round(Math.random() * 10 + 15);
-    this.boxHaving = Math.floor(Math.random() * 100 + 1);
   }
 
   update(dt) {
     // if (!this.attacking) {
-    if (this.pos.y <= 0 + this.game.island.pos.y - 50) {
+    if (this.pos.y + this.h <= 0 + this.game.island.pos.y - 50) {
       if (this.health <= 5) {
         this.frameY = 2;
       }
@@ -37,9 +27,14 @@ class Enemey {
     // }
 
     if (this.health <= 0) {
-      this.game.ui.coinAmount += 5;
+      this.game.ui.coinAmount += this.coinAmount;
       this.game.numberOfEnemiesKilled += 1;
       this.game.ui.score += this.score;
+      if (this.type === "BoduOdi" || this.type === "MaiOdi") {
+        this.game.numberOfEnemies += 1;
+        this.game.nextWave += 20;
+        this.game.wave++;
+      }
       if (this.game.boxDroppingChance > this.boxHaving) {
         let boxPos = {
           x: this.pos.x,
@@ -90,13 +85,13 @@ class Enemey {
   }
 
   attack(dt, bulding) {
-    if (this.attackTimer >= 2500) {
+    if (this.attackTimer >= this.attackTime) {
       let myPosition = {
-        x: this.pos.x,
-        y: this.pos.y + this.h / 2,
+        x: this.pos.x + this.w / 2,
+        y: this.pos.y + this.h,
       };
       this.projectiles.push(
-        new EnemyProjectile(this.game, this, myPosition, "bulding", bulding, {
+        new EnemyProjectile(this.game, this, myPosition, "enemy", bulding, {
           x: bulding.pos.x + bulding.w / 2,
           y: bulding.pos.y + bulding.h / 2,
         })
@@ -106,5 +101,85 @@ class Enemey {
     } else {
       this.attackTimer += dt;
     }
+  }
+}
+
+class KudaOdi extends Enemey {
+  constructor(game, pos) {
+    super(game, pos);
+    this.w = 32;
+    this.h = 53;
+    this.health = 10;
+    this.attackTimer = 4000;
+    this.attackTime = 4000;
+    // this.attacking = false;
+    this.type = "KudaOdi";
+    this.img = document.getElementById("kudaOdi");
+    this.speed = 10;
+    this.range = 100;
+    this.score = Math.round(Math.random() * 5 + 10);
+    this.boxHaving = Math.floor(Math.random() * 100 + 1);
+    this.coinAmount = 2;
+    this.projectilePower = 2;
+  }
+}
+
+class MedhuOdi extends Enemey {
+  constructor(game, pos) {
+    super(game, pos);
+    this.w = 40;
+    this.h = 66;
+    this.health = 30;
+    this.attackTimer = 3000;
+    this.attackTime = 3000;
+    // this.attacking = false;
+    this.type = "MedhuOdi";
+    this.img = document.getElementById("medhuOdi");
+    this.speed = 15;
+    this.range = 250;
+    this.score = Math.round(Math.random() * 10 + 15);
+    this.boxHaving = Math.floor(Math.random() * 100 + 1);
+    this.coinAmount = 5;
+    this.projectilePower = 5;
+  }
+}
+
+class BoduOdi extends Enemey {
+  constructor(game, pos) {
+    super(game, pos);
+    this.w = 75;
+    this.h = 124;
+    this.health = 250;
+    this.attackTimer = 1500;
+    this.attackTime = 1500;
+    // this.attacking = false;
+    this.type = "BoduOdi";
+    this.img = document.getElementById("boduOdi");
+    this.speed = 10;
+    this.range = 400;
+    this.score = Math.round(Math.random() * 100 + 50);
+    this.boxHaving = 100;
+    this.coinAmount = 100;
+    this.projectilePower = 50;
+  }
+}
+
+class MaiOdi extends Enemey {
+  constructor(game, pos) {
+    super(game, pos);
+    this.w = 135;
+    this.h = 223;
+    this.health = 500;
+    this.attackTimer = 4000;
+    this.attackTime = 4000;
+    // this.attacking = false;
+    this.type = "MaiOdi";
+    this.img = document.getElementById("maiOdi");
+    this.speed = 5;
+    this.range = 500;
+    this.score = Math.round(Math.random() * 250 + 250);
+    this.boxHaving = 100;
+    this.coinAmount = 250;
+    this.projectilePower = 250;
   }
 }
