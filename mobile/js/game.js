@@ -86,9 +86,7 @@ class Game {
 
   getRandomPos() {
     let pos = {
-      x: Math.round(
-        Math.random() * (canvas.width - 64) + this.island.pos.x + 64
-      ),
+      x: Math.round(Math.random() * (canvas.width - 40) + 40),
       y: 0 - 60,
     };
 

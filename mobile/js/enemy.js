@@ -15,7 +15,7 @@ class Enemey {
     this.MaxFrame = 2;
     this.nextFrame = 0;
     this.speed = 15;
-    this.range = 283;
+    this.range = 250;
     this.score = Math.round(Math.random() * 10 + 15);
     this.boxHaving = Math.floor(Math.random() * 100 + 1);
   }
