@@ -143,7 +143,7 @@ class Kudage extends Building {
     this.projectiles = [];
     this.attackTimer = 1000;
     this.attackTime = 1000;
-    this.range = 150;
+    this.range = 200;
     this.projectilePower = 5;
   }
 }
@@ -159,7 +159,7 @@ class Medhuge extends Building {
     this.projectiles = [];
     this.attackTimer = 500;
     this.attackTime = 500;
-    this.range = 300;
+    this.range = 400;
     this.projectilePower = 10;
   }
 }

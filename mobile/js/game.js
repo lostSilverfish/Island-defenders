@@ -57,7 +57,10 @@ class Game {
       });
     }
 
-    if (this.numberOfEnemiesKilled > this.nextWave) {
+    if (
+      this.numberOfEnemiesKilled > this.nextWave &&
+      this.enemyTypes === "normal"
+    ) {
       this.numberOfEnemies += 1;
       this.nextWave += 5;
       this.wave++;

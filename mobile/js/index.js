@@ -101,8 +101,8 @@ window.onload = () => {
         game.gameState = "playing";
         game.island.buldings.push(
           new Boduge(game, {
-            x: this.pos.x + this.w / 2 - 64 / 2,
-            y: this.pos.y + this.h / 2 - 64 / 2 + 50,
+            x: game.island.pos.x + game.island.w / 2 - 64 / 2,
+            y: game.island.pos.y + game.island.h / 2 - 64 / 2 + 50,
           })
         );
       }

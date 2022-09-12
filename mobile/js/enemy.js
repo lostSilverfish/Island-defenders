@@ -12,7 +12,7 @@ class Enemey {
 
   update(dt) {
     // if (!this.attacking) {
-    if (this.pos.y + this.h <= 0 + this.game.island.pos.y - 50) {
+    if (this.pos.y + this.h <= this.game.island.pos.y) {
       if (this.health <= 5) {
         this.frameY = 2;
       }
@@ -156,11 +156,11 @@ class BoduOdi extends Enemey {
     this.type = "BoduOdi";
     this.img = document.getElementById("boduOdi");
     this.speed = 10;
-    this.range = 400;
+    this.range = 300;
     this.score = Math.round(Math.random() * 100 + 50);
     this.boxHaving = 100;
     this.coinAmount = 100;
-    this.projectilePower = 50;
+    this.projectilePower = 25;
   }
 }
 
@@ -170,8 +170,8 @@ class MaiOdi extends Enemey {
     this.w = 135;
     this.h = 223;
     this.health = 500;
-    this.attackTimer = 4000;
-    this.attackTime = 4000;
+    this.attackTimer = 5000;
+    this.attackTime = 5000;
     // this.attacking = false;
     this.type = "MaiOdi";
     this.img = document.getElementById("maiOdi");
@@ -180,6 +180,6 @@ class MaiOdi extends Enemey {
     this.score = Math.round(Math.random() * 250 + 250);
     this.boxHaving = 100;
     this.coinAmount = 250;
-    this.projectilePower = 250;
+    this.projectilePower = 100;
   }
 }
