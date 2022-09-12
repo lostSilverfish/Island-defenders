@@ -59,7 +59,7 @@ class Game {
 
     if (this.numberOfEnemiesKilled > this.nextWave) {
       this.numberOfEnemies += 1;
-      this.nextWave += 20;
+      this.nextWave += 5;
       this.wave++;
       if (this.boxDroppingChance <= 25) {
         this.boxDroppingChance += 0.25;
