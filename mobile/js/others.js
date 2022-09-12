@@ -6,7 +6,7 @@ class Box {
     this.frameY = 0;
     this.MaxFrame = 3;
     this.nextFrame = 500;
-    this.size = 16;
+    this.size = 15;
     this.speed = 5;
     this.coin = Math.floor(Math.random() * 25 + 25);
     this.image = document.getElementById("box");

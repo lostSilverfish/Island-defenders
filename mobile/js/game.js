@@ -7,7 +7,7 @@ class Game {
     this.enemies = [];
     this.boxes = [];
     this.enemyTimer = 0;
-    this.nextEnemey = 7000;
+    this.nextEnemey = 5000;
     this.numberOfEnemies = 5;
     this.numberOfEnemiesKilled = 0;
     this.nextWave = 20;
@@ -87,9 +87,9 @@ class Game {
   getRandomPos() {
     let pos = {
       x: Math.round(
-        Math.random() * (canvas.width - 32) + this.island.pos.x + 32
+        Math.random() * (canvas.width - 64) + this.island.pos.x + 64
       ),
-      y: 0,
+      y: 0 - 60,
     };
 
     return pos;

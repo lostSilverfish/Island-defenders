@@ -73,6 +73,10 @@ class UI {
         this.tryAgainBtnSize.w / 2,
       y: this.gameOverPos.y + this.tryAgainBtnSize.h + 30,
     };
+    this.selectedBuildingSize = {
+      w: 50,
+      h: 45,
+    };
 
     this.coinImage = document.getElementById("coin");
     this.coinBar = document.getElementById("uiCoinBar");
@@ -86,6 +90,7 @@ class UI {
     this.gameOverImg = document.getElementById("gameOver");
     this.startBtn = document.getElementById("startBtn");
     this.tryAgainBtn = document.getElementById("tryAgainBtn");
+    this.selectedBuilding = document.getElementById("selectedBuilding");
 
     this.game = game;
     this.coinAmount = 100;
@@ -143,6 +148,32 @@ class UI {
       this.uiBuldingBarSize.w,
       this.uiBuldingBarSize.h
     );
+
+    if (this.game.island.placingBulding === "Vahge") {
+      ctx.drawImage(
+        this.selectedBuilding,
+        this.uiVahgePos.x,
+        this.uiVahgePos.y,
+        this.selectedBuildingSize.w,
+        this.selectedBuildingSize.h
+      );
+    } else if (this.game.island.placingBulding === "Medhuge") {
+      ctx.drawImage(
+        this.selectedBuilding,
+        this.uiMedhugePos.x,
+        this.uiMedhugePos.y,
+        this.selectedBuildingSize.w,
+        this.selectedBuildingSize.h
+      );
+    } else if (this.game.island.placingBulding === "Kudage") {
+      ctx.drawImage(
+        this.selectedBuilding,
+        this.uiKudagePos.x,
+        this.uiKudagePos.y,
+        this.selectedBuildingSize.w,
+        this.selectedBuildingSize.h
+      );
+    }
 
     ctx.drawImage(
       this.uiVahge,

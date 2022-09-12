@@ -120,8 +120,8 @@ class Building {
           "bulding",
           enemy,
           {
-            x: enemy.pos.x + enemy.h / 2,
-            y: enemy.pos.y + enemy.w / 2,
+            x: enemy.pos.x + enemy.w / 2,
+            y: enemy.pos.y + enemy.h / 2,
           }
         )
       );
