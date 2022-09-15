@@ -11,7 +11,7 @@ class Game {
     this.numberOfEnemies = 5;
     this.numberOfEnemiesKilled = 0;
     this.nextWave = 5;
-    this.wave = 5;
+    this.wave = 1;
     this.boxDroppingChance = 2.5;
     this.gameState = "welcome";
     this.enemyTypes = "normal";
