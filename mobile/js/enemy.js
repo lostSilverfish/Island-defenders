@@ -32,7 +32,7 @@ class Enemey {
       this.game.ui.score += this.score;
       if (this.type === "BoduOdi" || this.type === "MaiOdi") {
         this.game.numberOfEnemies += 1;
-        this.game.nextWave += 20;
+        this.game.nextWave += 5;
         this.game.wave++;
       }
       if (this.game.boxDroppingChance > this.boxHaving) {

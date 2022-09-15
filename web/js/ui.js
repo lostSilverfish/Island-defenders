@@ -88,7 +88,7 @@ class UI {
     this.tryAgainBtn = document.getElementById("tryAgainBtn");
 
     this.game = game;
-    this.coinAmount = 100;
+    this.coinAmount = 9999;
     this.score = 0;
   }
 

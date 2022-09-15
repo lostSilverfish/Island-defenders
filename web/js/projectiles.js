@@ -11,6 +11,7 @@ class Projectile {
       x: enemyPos.x - this.pos.x,
       y: enemyPos.y - this.pos.y,
     };
+    this.attackPower = this.parent.projectilePower;
     this.type = type;
     this.markForDeletion = false;
   }
@@ -36,7 +37,6 @@ class Projectile {
 class BuldingProjectile extends Projectile {
   constructor(game, parent, parentPos, type, enemy, enemyPos) {
     super(game, parent, parentPos, type, enemy, enemyPos);
-    this.attackPower = 5;
     this.img = document.getElementById("fireball");
   }
 
@@ -88,7 +88,6 @@ class BuldingProjectile extends Projectile {
 class EnemyProjectile extends Projectile {
   constructor(game, parent, parentPos, type, enemy, enemyPos) {
     super(game, parent, parentPos, type, enemy, enemyPos);
-    this.attackPower = 5;
     this.img = document.getElementById("stoneBall");
   }
 
