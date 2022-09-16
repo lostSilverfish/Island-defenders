@@ -13,7 +13,7 @@ class Enemey {
   update(dt) {
     // if (!this.attacking) {
     if (this.pos.y + this.h <= this.game.island.pos.y) {
-      if (this.health <= 5) {
+      if (this.health <= this.maxHealth / 2) {
         this.frameY = 2;
       }
       this.pos.y += this.speed / dt;
@@ -110,6 +110,7 @@ class KudaOdi extends Enemey {
     this.w = 32;
     this.h = 53;
     this.health = 10;
+    this.maxHealth = 10;
     this.attackTimer = 4000;
     this.attackTime = 4000;
     // this.attacking = false;
@@ -130,6 +131,7 @@ class MedhuOdi extends Enemey {
     this.w = 40;
     this.h = 66;
     this.health = 30;
+    this.maxHealth = 30;
     this.attackTimer = 3000;
     this.attackTime = 3000;
     // this.attacking = false;
@@ -150,6 +152,7 @@ class BoduOdi extends Enemey {
     this.w = 75;
     this.h = 124;
     this.health = 250;
+    this.maxHealth = 250;
     this.attackTimer = 1500;
     this.attackTime = 1500;
     // this.attacking = false;
@@ -170,6 +173,7 @@ class MaiOdi extends Enemey {
     this.w = 135;
     this.h = 223;
     this.health = 500;
+    this.maxHealth = 500;
     this.attackTimer = 5000;
     this.attackTime = 5000;
     // this.attacking = false;

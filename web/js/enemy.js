@@ -15,27 +15,27 @@ class Enemey {
   update(dt) {
     // if (!this.attacking) {
     if (this.pos.x <= 0 + this.game.island.pos.x) {
-      if (this.health <= this.maxHealth / 3) {
+      if (this.health <= this.maxHealth / 2) {
         this.frameY = 2;
       }
       this.pos.x += this.speed / dt;
     } else if (this.pos.x >= this.game.island.pos.x + this.game.island.w) {
-      if (this.health <= this.maxHealth / 3) {
+      if (this.health <= this.maxHealth / 2) {
         this.frameY = 2;
       }
       this.pos.x -= this.speed / dt;
     } else if (this.pos.y <= 0 + this.game.island.pos.y) {
-      if (this.health <= this.maxHealth / 3) {
+      if (this.health <= this.maxHealth / 2) {
         this.frameY = 2;
       }
       this.pos.y += this.speed / dt;
     } else if (this.pos.y >= this.game.island.pos.y + this.game.island.h) {
-      if (this.health <= this.maxHealth / 3) {
+      if (this.health <= this.maxHealth / 2) {
         this.frameY = 2;
       }
       this.pos.y -= this.speed / dt;
     } else {
-      if (this.health <= this.maxHealth / 3) {
+      if (this.health <= this.maxHealth / 2) {
         this.frameY = 3;
       } else {
         this.frameY = 1;

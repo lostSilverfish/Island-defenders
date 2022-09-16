@@ -14,6 +14,10 @@ class Projectile {
     this.attackPower = this.parent.projectilePower;
     this.type = type;
     this.markForDeletion = false;
+    this.soundPlayed = false;
+    this.damageSound = new Audio();
+    this.damageSound.src = "../sounds/damage.mp3";
+    this.damageSound.volume = 0.05;
   }
 
   update(dt) {
@@ -31,6 +35,15 @@ class Projectile {
     // ctx.fillStyle = "red";
     // ctx.fillRect(this.pos.x, this.pos.y, this.w, this.h);
     ctx.drawImage(this.img, this.pos.x, this.pos.y, this.w, this.h);
+    if (!this.soundPlayed) {
+      this.sound.play();
+      this.soundPlayed = true;
+    }
+  }
+  collide() {
+    this.enemy.health -= this.attackPower;
+    this.damageSound.play();
+    this.markForDeletion = true;
   }
 }
 
@@ -38,6 +51,9 @@ class BuldingProjectile extends Projectile {
   constructor(game, parent, parentPos, type, enemy, enemyPos) {
     super(game, parent, parentPos, type, enemy, enemyPos);
     this.img = document.getElementById("fireball");
+    this.sound = new Audio();
+    this.sound.src = "../sounds/fire.wav";
+    this.sound.volume = 0.05;
   }
 
   checkCollision() {
@@ -48,8 +64,7 @@ class BuldingProjectile extends Projectile {
         this.enemy.pos.y < this.pos.y &&
         this.enemy.pos.y + this.enemy.h > this.pos.y
       ) {
-        this.enemy.health -= this.attackPower;
-        this.markForDeletion = true;
+        this.collide();
       }
     } else if (this.enemy.pos.side === "up") {
       if (
@@ -58,8 +73,7 @@ class BuldingProjectile extends Projectile {
         this.enemy.pos.y > this.pos.y &&
         this.enemy.pos.y - this.enemy.h < this.pos.y
       ) {
-        this.enemy.health -= this.attackPower;
-        this.markForDeletion = true;
+        this.collide();
       }
     } else if (this.enemy.pos.side === "left") {
       if (
@@ -68,8 +82,7 @@ class BuldingProjectile extends Projectile {
         this.enemy.pos.y > this.pos.y &&
         this.enemy.pos.y - this.enemy.h < this.pos.y
       ) {
-        this.enemy.health -= this.attackPower;
-        this.markForDeletion = true;
+        this.collide();
       }
     } else if (this.enemy.pos.side === "down") {
       if (
@@ -78,8 +91,7 @@ class BuldingProjectile extends Projectile {
         this.enemy.pos.y < this.pos.y &&
         this.enemy.pos.y + this.enemy.h > this.pos.y
       ) {
-        this.enemy.health -= this.attackPower;
-        this.markForDeletion = true;
+        this.collide();
       }
     }
   }
@@ -89,6 +101,9 @@ class EnemyProjectile extends Projectile {
   constructor(game, parent, parentPos, type, enemy, enemyPos) {
     super(game, parent, parentPos, type, enemy, enemyPos);
     this.img = document.getElementById("stoneBall");
+    this.sound = new Audio();
+    this.sound.src = "../sounds/cannon.wav";
+    this.sound.volume = 0.1;
   }
 
   checkCollision() {
@@ -98,8 +113,7 @@ class EnemyProjectile extends Projectile {
       this.enemy.pos.y < this.pos.y &&
       this.enemy.pos.y + this.enemy.h > this.pos.y
     ) {
-      this.enemy.health -= this.attackPower;
-      this.markForDeletion = true;
+      this.collide();
     }
   }
 }

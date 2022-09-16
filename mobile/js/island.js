@@ -19,6 +19,9 @@ class Island {
     this.medhugeCoin = 200;
     this.vahgeCoin = 25;
     this.placingBulding = "Vahge";
+    this.placeBuldingSound = new Audio();
+    this, (this.placeBuldingSound.src = "../sounds/placeBuilding.wav");
+    this.placeBuldingSound.volume = 0.05;
   }
 
   update(dt) {
@@ -88,6 +91,7 @@ class Island {
         );
         this.game.ui.coinAmount -= this.vahgeCoin;
       }
+      this.placeBuldingSound.play();
     }
   }
 

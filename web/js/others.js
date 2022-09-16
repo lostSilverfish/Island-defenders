@@ -11,6 +11,9 @@ class Box {
     this.coin = Math.floor(Math.random() * 25 + 25);
     this.image = document.getElementById("box");
     this.markForDeletion = false;
+    this.openSound = new Audio();
+    this.openSound.src = "../sounds/boxOpen.wav";
+    this.openSound.volume = 0.05;
   }
 
   draw(ctx) {
@@ -51,6 +54,7 @@ class Box {
   }
 
   open() {
+    this.openSound.play();
     this.game.ui.coinAmount += this.coin;
     this.markForDeletion = true;
   }
