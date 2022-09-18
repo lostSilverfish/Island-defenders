@@ -15,10 +15,10 @@ class Game {
     this.boxDroppingChance = 2.5;
     this.gameState = "welcome";
     this.enemyTypes = "normal";
-    this.bgSound = new Audio();
-    this.bgSound.src = "../sounds/bg.wav";
-    this.bgSound.volume = 0.15;
-    this.bgSound.loop = true;
+    // this.bgSound = new Audio();
+    // this.bgSound.src = "../sounds/bg.wav";
+    // this.bgSound.volume = 0.15;
+    // this.bgSound.loop = true;
   }
 
   update(dt) {
@@ -96,7 +96,7 @@ class Game {
       });
     }
     this.ui.draw(ctx);
-    this.bgSound.play();
+    // this.bgSound.play();
   }
 
   addNewEnemy() {

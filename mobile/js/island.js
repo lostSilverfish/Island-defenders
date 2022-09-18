@@ -19,9 +19,9 @@ class Island {
     this.medhugeCoin = 200;
     this.vahgeCoin = 25;
     this.placingBulding = "Vahge";
-    this.placeBuldingSound = new Audio();
-    this, (this.placeBuldingSound.src = "../sounds/placeBuilding.wav");
-    this.placeBuldingSound.volume = 0.05;
+    this.placeBuildingSound = new Audio();
+    this.placeBuildingSound.src = "../sounds/placeBuilding.wav";
+    this.placeBuildingSound.volume = 0.05;
   }
 
   update(dt) {
@@ -67,6 +67,7 @@ class Island {
             y: mousePos.y - 16,
           })
         );
+        this.placeBuildingSound.play();
         this.game.ui.coinAmount -= this.kudageCoin;
       } else if (
         this.placingBulding === "Medhuge" &&
@@ -78,6 +79,7 @@ class Island {
             y: mousePos.y - 16,
           })
         );
+        this.placeBuildingSound.play();
         this.game.ui.coinAmount -= this.medhugeCoin;
       } else if (
         this.placingBulding === "Vahge" &&
@@ -89,9 +91,9 @@ class Island {
             y: mousePos.y - 16,
           })
         );
+        this.placeBuildingSound.play();
         this.game.ui.coinAmount -= this.vahgeCoin;
       }
-      this.placeBuldingSound.play();
     }
   }
 
@@ -99,10 +101,10 @@ class Island {
     for (let i = 1; i < this.buldings.length; i++) {
       for (let j = 0; j < this.game.enemies.length; j++) {
         if (
-          Math.abs(this.buldings[i].pos.x - this.game.enemies[j].pos.x) <=
-            this.buldings[i].range &&
-          Math.abs(this.buldings[i].pos.y - this.game.enemies[j].pos.y) <=
-            this.buldings[i].range
+          Math.abs(
+            this.buldings[i].pos.y -
+              (this.game.enemies[j].pos.y + this.game.enemies[j].h)
+          ) <= this.buldings[i].range
         ) {
           this.buldings[i].attack(dt, this.game.enemies[j]);
           break;

@@ -62,6 +62,7 @@ window.onload = () => {
         game.ui.uiBuldingSize + game.ui.uiKudagePos.y > mousePos.y
       ) {
         game.island.placingBulding = "Kudage";
+        game.island.placeBuildingSound.play();
       } else if (
         game.ui.uiMedhugePos.x < mousePos.x &&
         game.ui.uiBuldingSize + game.ui.uiMedhugePos.x > mousePos.x &&
@@ -69,6 +70,7 @@ window.onload = () => {
         game.ui.uiBuldingSize + game.ui.uiMedhugePos.y > mousePos.y
       ) {
         game.island.placingBulding = "Medhuge";
+        game.island.placeBuildingSound.play();
       } else if (
         game.ui.uiVahgePos.x < mousePos.x &&
         game.ui.uiBuldingSize + game.ui.uiVahgePos.x > mousePos.x &&
@@ -76,6 +78,7 @@ window.onload = () => {
         game.ui.uiBuldingSize + game.ui.uiVahgePos.y > mousePos.y
       ) {
         game.island.placingBulding = "Vahge";
+        game.island.placeBuildingSound.play();
       }
 
       game.boxes.forEach((box) => {

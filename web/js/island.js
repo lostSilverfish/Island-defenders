@@ -30,9 +30,9 @@ class Island {
     this.medhugeCoin = 200;
     this.vahgeCoin = 25;
     this.placingBulding = "Vahge";
-    this.placeBuldingSound = new Audio();
-    this, (this.placeBuldingSound.src = "../sounds/placeBuilding.wav");
-    this.placeBuldingSound.volume = 0.05;
+    this.placeBuildingSound = new Audio();
+    this.placeBuildingSound.src = "../sounds/placeBuilding.wav";
+    this.placeBuildingSound.volume = 0.05;
   }
 
   update(dt) {
@@ -78,6 +78,7 @@ class Island {
             y: mousePos.y - 32,
           })
         );
+        this.placeBuildingSound.play();
         this.game.ui.coinAmount -= this.kudageCoin;
       } else if (
         this.placingBulding === "Medhuge" &&
@@ -89,6 +90,7 @@ class Island {
             y: mousePos.y - 32,
           })
         );
+        this.placeBuildingSound.play();
         this.game.ui.coinAmount -= this.medhugeCoin;
       } else if (
         this.placingBulding === "Vahge" &&
@@ -100,9 +102,9 @@ class Island {
             y: mousePos.y - 32,
           })
         );
+        this.placeBuildingSound.play();
         this.game.ui.coinAmount -= this.vahgeCoin;
       }
-      this.placeBuldingSound.play();
     }
   }
 
