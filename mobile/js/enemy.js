@@ -18,7 +18,7 @@ class Enemey {
       }
       this.pos.y += this.speed / dt;
     } else {
-      if (this.health <= 5) {
+      if (this.health <= this.maxHealth / 2) {
         this.frameY = 3;
       } else {
         this.frameY = 1;
