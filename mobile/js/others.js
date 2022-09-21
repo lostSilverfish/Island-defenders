@@ -8,6 +8,8 @@ class Box {
     this.nextFrame = 500;
     this.size = 15;
     this.speed = 5;
+    this.floatingTime = 10000;
+    this.floatTimer = 0;
     this.coin = Math.floor(Math.random() * 25 + 25);
     this.image = document.getElementById("box");
     this.markForDeletion = false;
@@ -40,6 +42,12 @@ class Box {
       this.nextFrame = 0;
     } else {
       this.nextFrame += dt;
+    }
+
+    if (this.floatTimer >= this.floatingTime) {
+      this.markForDeletion = true;
+    } else {
+      this.floatTimer += dt;
     }
 
     if (this.pos.x < this.game.island.pos.x - 50) {

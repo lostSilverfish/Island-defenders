@@ -66,7 +66,7 @@ class Game {
       this.enemyTypes === "normal"
     ) {
       this.numberOfEnemies += 1;
-      this.nextWave += 5;
+      this.nextWave += 5 + (this.wave % 10);
       this.wave++;
       if (this.boxDroppingChance <= 25) {
         this.boxDroppingChance += 0.25;

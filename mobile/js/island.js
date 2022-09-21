@@ -16,7 +16,7 @@ class Island {
     ];
 
     this.kudageCoin = 50;
-    this.medhugeCoin = 200;
+    this.medhugeCoin = 500;
     this.vahgeCoin = 25;
     this.placingBulding = "Vahge";
     this.placeBuildingSound = new Audio();

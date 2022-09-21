@@ -132,6 +132,22 @@ class Building {
   }
 }
 
+class Vahge extends Building {
+  constructor(game, pos) {
+    super(game, pos);
+    this.w = 32;
+    this.h = 32;
+    this.type = "Vahge";
+    this.health = 50;
+    this.img = document.getElementById("vahge");
+    this.projectiles = [];
+    this.attackTimer = 2000;
+    this.attackTime = 2000;
+    this.range = 75;
+    this.projectilePower = 5;
+  }
+}
+
 class Kudage extends Building {
   constructor(game, pos) {
     super(game, pos);
@@ -161,22 +177,6 @@ class Medhuge extends Building {
     this.attackTime = 500;
     this.range = 350;
     this.projectilePower = 10;
-  }
-}
-
-class Vahge extends Building {
-  constructor(game, pos) {
-    super(game, pos);
-    this.w = 32;
-    this.h = 32;
-    this.type = "Vahge";
-    this.health = 50;
-    this.img = document.getElementById("vahge");
-    this.projectiles = [];
-    this.attackTimer = 2000;
-    this.attackTime = 2000;
-    this.range = 75;
-    this.projectilePower = 5;
   }
 }
 
