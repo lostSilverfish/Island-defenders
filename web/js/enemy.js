@@ -10,6 +10,7 @@ class Enemey {
     this.frameY = 0;
     this.MaxFrame = 2;
     this.nextFrame = 0;
+    this.frameInterval = 500;
   }
 
   update(dt) {
@@ -91,7 +92,7 @@ class Enemey {
       projectile.update(dt);
     });
 
-    if (this.nextFrame > 500) {
+    if (this.nextFrame > this.frameInterval) {
       if (this.frameX < this.MaxFrame) {
         this.frameX++;
       } else {
@@ -124,6 +125,7 @@ class Enemey {
       ctx.save();
       ctx.translate(this.pos.x, this.pos.y);
       ctx.rotate(Math.PI);
+      ctx.scale(1, -1);
       ctx.drawImage(
         this.img,
         this.frameX * this.w,
@@ -140,6 +142,7 @@ class Enemey {
       ctx.save();
       ctx.translate(this.pos.x, this.pos.y);
       ctx.rotate(0.5 * Math.PI);
+      ctx.scale(1, -1);
       ctx.drawImage(
         this.img,
         this.frameX * this.w,
@@ -198,7 +201,7 @@ class Enemey {
       } else if (this.pos.side === "left") {
         let myPosition = {
           x: this.pos.x,
-          y: this.pos.y - this.h / 2,
+          y: this.pos.y + this.h / 2,
         };
         this.projectiles.push(
           new EnemyProjectile(this.game, this, myPosition, "bulding", bulding, {
@@ -208,7 +211,7 @@ class Enemey {
         );
       } else if (this.pos.side === "down") {
         let myPosition = {
-          x: this.pos.x - this.h / 2,
+          x: this.pos.x + this.h / 2,
           y: this.pos.y,
         };
         this.projectiles.push(
@@ -231,8 +234,8 @@ class KudaOdi extends Enemey {
     super(game, pos);
     this.w = 106;
     this.h = 64;
-    this.health = 10;
-    this.maxHealth = 10;
+    this.health = Math.ceil(Math.random() * this.game.wave) + 10;
+    this.maxHealth = this.health;
     this.attackTimer = 4000;
     this.attackTime = 4000;
     // this.attacking = false;
@@ -242,7 +245,7 @@ class KudaOdi extends Enemey {
     this.range = 100;
     this.score = Math.round(Math.random() * 5 + 10);
     this.boxHaving = Math.floor(Math.random() * 100 + 1);
-    this.coinAmount = 2;
+    this.coinAmount = Math.round(Math.random() * 2 + 2);
     this.projectilePower = 2;
   }
 }
@@ -252,8 +255,8 @@ class MedhuOdi extends Enemey {
     super(game, pos);
     this.w = 132;
     this.h = 80;
-    this.health = 30;
-    this.maxHealth = 30;
+    this.health = Math.ceil(Math.random() * this.game.wave) + 30;
+    this.maxHealth = this.health;
     this.attackTimer = 3000;
     this.attackTime = 3000;
     // this.attacking = false;
@@ -263,7 +266,7 @@ class MedhuOdi extends Enemey {
     this.range = 250;
     this.score = Math.round(Math.random() * 10 + 15);
     this.boxHaving = Math.floor(Math.random() * 100 + 1);
-    this.coinAmount = 5;
+    this.coinAmount = Math.round(Math.random() * 2 + 5);
     this.projectilePower = 5;
   }
 }
@@ -273,8 +276,8 @@ class BoduOdi extends Enemey {
     super(game, pos);
     this.w = 248;
     this.h = 150;
-    this.health = 250;
-    this.maxHealth = 250;
+    this.health = (this.game.wave - 5) / 10 + 1 * 250;
+    this.maxHealth = this.health;
     this.attackTimer = 1500;
     this.attackTime = 1500;
     // this.attacking = false;
@@ -282,10 +285,12 @@ class BoduOdi extends Enemey {
     this.img = document.getElementById("boduOdi");
     this.speed = 10;
     this.range = 300;
-    this.score = Math.round(Math.random() * 100 + 50);
+    this.score =
+      Math.round(Math.random() * 100 + 50) * ((this.game.wave - 5) / 10 + 1);
     this.boxHaving = 100;
-    this.coinAmount = 100;
-    this.projectilePower = 25;
+    this.coinAmount =
+      Math.round(Math.random() * 100 + 50) * ((this.game.wave - 5) / 10 + 1);
+    this.projectilePower = (this.game.wave - 5) / 10 + 1 * 25;
   }
 }
 
@@ -294,18 +299,19 @@ class MaiOdi extends Enemey {
     super(game, pos);
     this.w = 446;
     this.h = 270;
-    this.health = 500;
-    this.maxHealth = 500;
-    this.attackTimer = 5000;
-    this.attackTime = 5000;
+    this.health = (this.game.wave / 10) * 500;
+    this.maxHealth = this.health;
+    this.attackTimer = 3000;
+    this.attackTime = 3000;
     // this.attacking = false;
     this.type = "MaiOdi";
     this.img = document.getElementById("maiOdi");
     this.speed = 5;
     this.range = 500;
-    this.score = Math.round(Math.random() * 250 + 250);
+    this.score = Math.round(Math.random() * 250 + 250) * (this.game.wave / 10);
     this.boxHaving = 100;
-    this.coinAmount = 250;
-    this.projectilePower = 100;
+    this.coinAmount =
+      Math.round(Math.random() * 100 + 150) * (this.game.wave / 10);
+    this.projectilePower = (this.game.wave / 10) * 100;
   }
 }

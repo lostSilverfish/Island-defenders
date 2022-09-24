@@ -6,6 +6,7 @@ class Building {
     this.frameX = 0;
     this.frameY = 0;
     this.nextFrame = 0;
+    this.frameInterval = 500;
     this.MaxFrame = 3;
     this.markForDeletion = false;
   }
@@ -14,16 +15,16 @@ class Building {
     if (this.type !== "Boduge") {
       if (this.health < 0) {
         this.markForDeletion = true;
-      } else if (this.health < 20) {
+      } else if (this.health <= this.maxHealth / 2) {
         this.frameY = 1;
       }
     } else {
       if (this.health < 0) {
         this.markForDeletion = true;
         this.game.gameState = "gameOver";
-      } else if (this.health <= 250) {
+      } else if (this.health <= this.maxHealth / 2) {
         this.frameY = 1;
-      } else if (this.health > 250) {
+      } else if (this.health > this.maxHealth / 2) {
         this.frameY = 0;
       }
     }
@@ -39,7 +40,7 @@ class Building {
       });
     }
 
-    if (this.nextFrame > 500) {
+    if (this.nextFrame > this.frameInterval) {
       if (this.frameX < this.MaxFrame) {
         this.frameX++;
       } else {
@@ -139,6 +140,7 @@ class Vahge extends Building {
     this.h = 32;
     this.type = "Vahge";
     this.health = 50;
+    this.maxHealth = 50;
     this.img = document.getElementById("vahge");
     this.projectiles = [];
     this.attackTimer = 2000;
@@ -155,6 +157,7 @@ class Kudage extends Building {
     this.h = 32;
     this.type = "Kudage";
     this.health = 100;
+    this.maxHealth = 100;
     this.img = document.getElementById("kudage");
     this.projectiles = [];
     this.attackTimer = 1000;
@@ -171,6 +174,7 @@ class Medhuge extends Building {
     this.h = 32;
     this.type = "Medhuge";
     this.health = 200;
+    this.maxHealth = 200;
     this.img = document.getElementById("medhuge");
     this.projectiles = [];
     this.attackTimer = 500;
@@ -186,6 +190,7 @@ class Boduge extends Building {
     this.w = 64;
     this.h = 64;
     this.health = 500;
+    this.maxHealth = 500;
     this.coinSize = 14;
     this.type = "Boduge";
     this.img = document.getElementById("boduge");

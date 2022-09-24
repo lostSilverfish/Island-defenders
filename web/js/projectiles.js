@@ -79,15 +79,15 @@ class BuldingProjectile extends Projectile {
       if (
         this.enemy.pos.x > this.pos.x &&
         this.enemy.pos.x - this.enemy.w < this.pos.x &&
-        this.enemy.pos.y > this.pos.y &&
-        this.enemy.pos.y - this.enemy.h < this.pos.y
+        this.enemy.pos.y < this.pos.y &&
+        this.enemy.pos.y + this.enemy.h > this.pos.y
       ) {
         this.collide();
       }
     } else if (this.enemy.pos.side === "down") {
       if (
-        this.enemy.pos.x > this.pos.x &&
-        this.enemy.pos.x - this.enemy.w < this.pos.x &&
+        this.enemy.pos.x < this.pos.x &&
+        this.enemy.pos.x + this.enemy.w > this.pos.x &&
         this.enemy.pos.y < this.pos.y &&
         this.enemy.pos.y + this.enemy.h > this.pos.y
       ) {

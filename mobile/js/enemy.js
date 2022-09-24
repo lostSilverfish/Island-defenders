@@ -8,6 +8,7 @@ class Enemey {
     this.frameY = 0;
     this.MaxFrame = 2;
     this.nextFrame = 0;
+    this.frameInterval = 500;
   }
 
   update(dt) {
@@ -54,7 +55,7 @@ class Enemey {
       projectile.update(dt);
     });
 
-    if (this.nextFrame > 500) {
+    if (this.nextFrame > this.frameInterval) {
       if (this.frameX < this.MaxFrame) {
         this.frameX++;
       } else {
