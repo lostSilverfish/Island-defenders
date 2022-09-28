@@ -7,7 +7,7 @@ class Game {
     this.enemies = [];
     this.boxes = [];
     this.enemyTimer = 0;
-    this.nextEnemey = 7000;
+    this.nextEnemey = 5000;
     this.numberOfEnemies = 5;
     this.numberOfEnemiesKilled = 0;
     this.nextWave = 5;
@@ -67,9 +67,6 @@ class Game {
       this.wave++;
       if (this.boxDroppingChance <= 25) {
         this.boxDroppingChance += 0.25;
-      }
-      if (this.nextEnemey > 500) {
-        this.nextEnemey -= 100;
       }
     }
 

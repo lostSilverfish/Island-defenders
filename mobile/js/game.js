@@ -71,9 +71,6 @@ class Game {
       if (this.boxDroppingChance <= 25) {
         this.boxDroppingChance += 0.25;
       }
-      if (this.nextEnemey > 500) {
-        this.nextEnemey -= 100;
-      }
     }
 
     if (this.wave % 5 === 0 && this.wave % 10 !== 0) {

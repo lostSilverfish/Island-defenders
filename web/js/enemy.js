@@ -53,7 +53,7 @@ class Enemey {
         this.game.nextWave += 5;
         this.game.wave++;
       }
-      if (this.game.boxDroppingChance > this.boxHaving) {
+      if (this.game.boxDroppingChance >= this.boxHaving) {
         if (this.pos.side === "up") {
           let boxPos = {
             x: this.pos.x,
@@ -287,7 +287,7 @@ class BoduOdi extends Enemey {
     this.range = 300;
     this.score =
       Math.round(Math.random() * 100 + 50) * ((this.game.wave - 5) / 10 + 1);
-    this.boxHaving = 100;
+    this.boxHaving = this.game.boxDroppingChance;
     this.coinAmount =
       Math.round(Math.random() * 100 + 50) * ((this.game.wave - 5) / 10 + 1);
     this.projectilePower = (this.game.wave - 5) / 10 + 1 * 25;
@@ -309,7 +309,7 @@ class MaiOdi extends Enemey {
     this.speed = 5;
     this.range = 500;
     this.score = Math.round(Math.random() * 250 + 250) * (this.game.wave / 10);
-    this.boxHaving = 100;
+    this.boxHaving = this.game.boxDroppingChance;
     this.coinAmount =
       Math.round(Math.random() * 100 + 150) * (this.game.wave / 10);
     this.projectilePower = (this.game.wave / 10) * 100;
