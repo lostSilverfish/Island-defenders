@@ -38,8 +38,8 @@ class Enemey {
       }
       if (this.game.boxDroppingChance >= this.boxHaving) {
         let boxPos = {
-          x: this.pos.x,
-          y: this.pos.y - this.h,
+          x: this.pos.x + this.w / 2,
+          y: this.pos.y + this.h / 2,
         };
         this.game.boxes.push(new Box(this.game, boxPos));
       }
@@ -96,12 +96,6 @@ class Enemey {
           x: bulding.pos.x + bulding.w / 2,
           y: bulding.pos.y + bulding.h / 2,
         })
-      );
-      console.log(
-        this.maxHealth,
-        this.projectilePower,
-        this.score,
-        this.coinAmount
       );
 
       this.attackTimer = 0;
