@@ -1,4 +1,4 @@
-class Enemey {
+class Enemy {
   constructor(game, pos) {
     this.game = game;
     this.pos = pos;
@@ -105,7 +105,7 @@ class Enemey {
   }
 }
 
-class KudaOdi extends Enemey {
+class KudaOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 32;
@@ -126,7 +126,7 @@ class KudaOdi extends Enemey {
   }
 }
 
-class MedhuOdi extends Enemey {
+class MedhuOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 40;
@@ -147,7 +147,7 @@ class MedhuOdi extends Enemey {
   }
 }
 
-class BoduOdi extends Enemey {
+class BoduOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 75;
@@ -170,7 +170,7 @@ class BoduOdi extends Enemey {
   }
 }
 
-class MaiOdi extends Enemey {
+class MaiOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 135;

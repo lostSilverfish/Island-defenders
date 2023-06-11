@@ -7,12 +7,13 @@ class Game {
     this.enemies = [];
     this.boxes = [];
     this.enemyTimer = 0;
-    this.nextEnemey = 5000;
+    this.nextEnemy = 5000;
     this.numberOfEnemies = 5;
     this.numberOfEnemiesKilled = 0;
     this.nextWave = 5;
     this.wave = 1;
     this.boxDroppingChance = 2.5;
+    this.enemySpeed = 1;
     this.gameState = "welcome";
     this.enemyTypes = "normal";
     // this.bgSound = new Audio();
@@ -26,7 +27,7 @@ class Game {
     this.enemies = this.enemies.filter((enemy) => !enemy.markForDeletion);
     this.boxes = this.boxes.filter((box) => !box.markForDeletion);
     if (
-      this.enemyTimer > this.nextEnemey &&
+      this.enemyTimer > this.nextEnemy &&
       this.enemies.length < this.numberOfEnemies
     ) {
       if (this.enemyTypes === "normal") {
@@ -65,6 +66,8 @@ class Game {
       this.numberOfEnemies += 1;
       this.nextWave += 5 + (this.wave % 10);
       this.wave++;
+      this.enemySpeed += 0.05;
+      console.log(this.enemySpeed);
       if (this.boxDroppingChance <= 25) {
         this.boxDroppingChance += 0.25;
       }

@@ -216,7 +216,7 @@ class UI {
     this.game.wave = 1;
     this.game.boxDroppingChance = 2.5;
     this.game.nextWave = 20;
-    this.game.nextEnemey = 7000;
+    this.game.nextEnemy = 7000;
     this.game.numberOfEnemies = 5;
     this.game.numberOfEnemiesKilled = 0;
   }

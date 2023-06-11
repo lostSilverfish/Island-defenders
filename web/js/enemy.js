@@ -1,9 +1,9 @@
-class Enemey {
+class Enemy {
   constructor(game, pos) {
     this.game = game;
     this.pos = pos;
     // this.attacking = false;
-    this.img = document.getElementById("enemey");
+    this.img = document.getElementById("Enemy");
     this.projectiles = [];
     this.markForDeletion = false;
     this.frameX = 0;
@@ -52,6 +52,7 @@ class Enemey {
         this.game.numberOfEnemies += 1;
         this.game.nextWave += 5;
         this.game.wave++;
+        this.game.enemySpeed += 0.05;
       }
       if (this.game.boxDroppingChance >= this.boxHaving) {
         if (this.pos.side === "up") {
@@ -229,7 +230,7 @@ class Enemey {
   }
 }
 
-class KudaOdi extends Enemey {
+class KudaOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 106;
@@ -241,7 +242,7 @@ class KudaOdi extends Enemey {
     // this.attacking = false;
     this.type = "KudaOdi";
     this.img = document.getElementById("kudaOdi");
-    this.speed = 10;
+    this.speed = 10 * this.game.enemySpeed;
     this.range = 100;
     this.score = Math.round(Math.random() * 5 + 10);
     this.boxHaving = Math.floor(Math.random() * 100 + 1);
@@ -250,7 +251,7 @@ class KudaOdi extends Enemey {
   }
 }
 
-class MedhuOdi extends Enemey {
+class MedhuOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 132;
@@ -262,7 +263,7 @@ class MedhuOdi extends Enemey {
     // this.attacking = false;
     this.type = "MedhuOdi";
     this.img = document.getElementById("medhuOdi");
-    this.speed = 15;
+    this.speed = 15 * this.game.enemySpeed;
     this.range = 250;
     this.score = Math.round(Math.random() * 10 + 15);
     this.boxHaving = Math.floor(Math.random() * 100 + 1);
@@ -271,7 +272,7 @@ class MedhuOdi extends Enemey {
   }
 }
 
-class BoduOdi extends Enemey {
+class BoduOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 248;
@@ -283,7 +284,7 @@ class BoduOdi extends Enemey {
     // this.attacking = false;
     this.type = "BoduOdi";
     this.img = document.getElementById("boduOdi");
-    this.speed = 10;
+    this.speed = 10 * this.game.enemySpeed;
     this.range = 300;
     this.score =
       Math.round(Math.random() * 100 + 50) * ((this.game.wave - 5) / 10 + 1);
@@ -294,7 +295,7 @@ class BoduOdi extends Enemey {
   }
 }
 
-class MaiOdi extends Enemey {
+class MaiOdi extends Enemy {
   constructor(game, pos) {
     super(game, pos);
     this.w = 446;
@@ -306,7 +307,7 @@ class MaiOdi extends Enemey {
     // this.attacking = false;
     this.type = "MaiOdi";
     this.img = document.getElementById("maiOdi");
-    this.speed = 5;
+    this.speed = 5 * this.game.enemySpeed;
     this.range = 500;
     this.score = Math.round(Math.random() * 250 + 250) * (this.game.wave / 10);
     this.boxHaving = this.game.boxDroppingChance;
