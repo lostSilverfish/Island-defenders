@@ -3,8 +3,8 @@ window.onload = () => {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
 
-  canvas.width = window.innerWidth * devicePixelRatio;
-  canvas.height = window.innerHeight * devicePixelRatio;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
   let prevTime = 0;
 
@@ -33,8 +33,8 @@ window.onload = () => {
 
   document.addEventListener("click", (e) => {
     let mousePos = {
-      x: e.clientX * devicePixelRatio,
-      y: e.clientY * devicePixelRatio,
+      x: e.clientX,
+      y: e.clientY,
     };
 
     if (game.gameState === "playing") {

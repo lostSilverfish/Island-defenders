@@ -117,7 +117,7 @@ class KudaOdi extends Enemy {
     // this.attacking = false;
     this.type = "KudaOdi";
     this.img = document.getElementById("kudaOdi");
-    this.speed = 10;
+    this.speed = 25;
     this.range = 100;
     this.score = Math.round(Math.random() * 5 + 10);
     this.boxHaving = Math.floor(Math.random() * 100 + 1);
@@ -138,7 +138,7 @@ class MedhuOdi extends Enemy {
     // this.attacking = false;
     this.type = "MedhuOdi";
     this.img = document.getElementById("medhuOdi");
-    this.speed = 15;
+    this.speed = 20;
     this.range = 250;
     this.score = Math.round(Math.random() * 10 + 15);
     this.boxHaving = Math.floor(Math.random() * 100 + 1);
@@ -159,7 +159,7 @@ class BoduOdi extends Enemy {
     // this.attacking = false;
     this.type = "BoduOdi";
     this.img = document.getElementById("boduOdi");
-    this.speed = 10;
+    this.speed = 30;
     this.range = 300;
     this.score =
       Math.round(Math.random() * 100 + 50) * ((this.game.wave - 5) / 10 + 1);
@@ -182,7 +182,7 @@ class MaiOdi extends Enemy {
     // this.attacking = false;
     this.type = "MaiOdi";
     this.img = document.getElementById("maiOdi");
-    this.speed = 5;
+    this.speed = 10;
     this.range = 500;
     this.score = Math.round(Math.random() * 250 + 250) * (this.game.wave / 10);
     this.boxHaving = this.game.boxDroppingChance;
