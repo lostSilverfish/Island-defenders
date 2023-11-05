@@ -17,7 +17,7 @@ class Enemy {
       if (this.health <= this.maxHealth / 2) {
         this.frameY = 2;
       }
-      this.pos.y += this.speed / dt;
+      this.pos.y += (this.speed / dt) * 0.5;
     } else {
       if (this.health <= this.maxHealth / 2) {
         this.frameY = 3;
@@ -159,7 +159,7 @@ class BoduOdi extends Enemy {
     // this.attacking = false;
     this.type = "BoduOdi";
     this.img = document.getElementById("boduOdi");
-    this.speed = 2;
+    this.speed = 5;
     this.range = 300;
     this.score =
       Math.round(Math.random() * 100 + 50) * ((this.game.wave - 5) / 10 + 1);
@@ -182,7 +182,7 @@ class MaiOdi extends Enemy {
     // this.attacking = false;
     this.type = "MaiOdi";
     this.img = document.getElementById("maiOdi");
-    this.speed = 1;
+    this.speed = 2;
     this.range = 500;
     this.score = Math.round(Math.random() * 250 + 250) * (this.game.wave / 10);
     this.boxHaving = this.game.boxDroppingChance;

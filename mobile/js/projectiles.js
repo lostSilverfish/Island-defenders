@@ -21,8 +21,8 @@ class Projectile {
   }
 
   update(dt) {
-    this.pos.x += (this.speed.x / dt) * 0.25;
-    this.pos.y += (this.speed.y / dt) * 0.25;
+    this.pos.x += (this.speed.x / dt) * 0.125;
+    this.pos.y += (this.speed.y / dt) * 0.125;
 
     if (this.pos.x < 0 || this.pos.x > canvas.width) {
       this.markForDeletion = true;
