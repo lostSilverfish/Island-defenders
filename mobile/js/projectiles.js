@@ -17,11 +17,12 @@ class Projectile {
     this.damageSound = new Audio();
     this.damageSound.src = "../sounds/damage.mp3";
     this.damageSound.volume = 0.05;
+    this.attackSoundPlayed = false;
   }
 
   update(dt) {
-    this.pos.x += (this.speed.x / dt) * 0.5;
-    this.pos.y += (this.speed.y / dt) * 0.5;
+    this.pos.x += (this.speed.x / dt) * 0.25;
+    this.pos.y += (this.speed.y / dt) * 0.25;
 
     if (this.pos.x < 0 || this.pos.x > canvas.width) {
       this.markForDeletion = true;
@@ -40,7 +41,10 @@ class Projectile {
     // ctx.fillStyle = "red";
     // ctx.fillRect(this.pos.x, this.pos.y, this.w, this.h);
     ctx.drawImage(this.img, this.pos.x, this.pos.y, this.w, this.h);
-    this.sound.play();
+    if (!this.attackSoundPlayed) {
+      this.sound.play();
+      this.attackSoundPlayed = true;
+    }
   }
 }
 
